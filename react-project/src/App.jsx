@@ -1,35 +1,24 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+// src/App.jsx
+import './App.css';
+import Greeting from './Greeting'; // компонент из Примера 1
+import UserCard from './UserCard'; // компонент из Примера 2
+import TaskList from './TaskList'; // наш новый компонент
 
 function App() {
-  const [count, setCount] = useState(0)
-
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+    return (
+        <div className="App">
+            {/* Компонент из предыдущего примера */}
+            <Greeting />
+            {/* Используем UserCard и передаём ему props */}
+            <UserCard
+                name="Давид Цатурян"
+                role="Администратор"
+                avatarUrl="src\assets\Пахан.jpg"
+                isOnline={true}
+            />
+            {/* добавляем компонент списка задач */}
+            <TaskList />
+        </div>
+    );
 }
-
-export default App
+export default App;
